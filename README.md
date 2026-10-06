@@ -67,7 +67,3 @@ Leet mode (`supreme → supr3me`) falls back to suffix-append if no replaceable 
 - Twitch usernames: letters, numbers, `_` only, 4–25 chars.
 - YouTube handles: letters, numbers, `_` `.` `-`, 3–30 chars.
 - Plain dictionary words are almost always taken — add 1–2 numbers / a separator / leet swap.
-
-## License
-
-MIT — do what you want with it.
