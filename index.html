@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>handleforge — modern username generator</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<div class="bg"></div>
+<main class="wrap">
+  <header>
+    <div class="logo">handle<span>forge</span></div>
+    <p class="sub">modern, usable handles — not DarkSlayer99. built for twitch / youtube / gaming / socials.</p>
+  </header>
+
+  <section class="controls">
+    <div class="tabs" id="modeTabs">
+      <button data-mode="combo" class="active">word combos</button>
+      <button data-mode="invented">made-up</button>
+      <button data-mode="streamer">streamer style</button>
+    </div>
+
+    <div class="grid">
+      <label class="field">base word <span class="hint">(optional, e.g. rhix)</span>
+        <input id="seedInput" placeholder="leave blank for random" maxlength="12" />
+      </label>
+      <label class="field">vibe
+        <select id="vibeSelect">
+          <option value="clean">clean / neutral</option>
+          <option value="soft">soft / cozy-minimal</option>
+          <option value="tech">tech / glitchy</option>
+        </select>
+      </label>
+      <label class="field">length
+        <select id="lenSelect">
+          <option value="any">any (3–20)</option>
+          <option value="short">short (4–8)</option>
+          <option value="medium" selected>medium (6–12)</option>
+          <option value="long">long (12–20)</option>
+        </select>
+      </label>
+    </div>
+
+    <fieldset class="optblock">
+      <legend>numbers</legend>
+      <div class="optgrid">
+        <label class="field">how many
+          <select id="numCount">
+            <option value="0">0</option>
+            <option value="1" selected>1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+          </select>
+        </label>
+        <label class="field">placement
+          <select id="numPos">
+            <option value="end" selected>at the end</option>
+            <option value="start">at the start</option>
+            <option value="anywhere">random spot</option>
+            <option value="leet">replace letters (supr3me)</option>
+            <option value="mixed">mixed</option>
+          </select>
+        </label>
+        <label class="field">style
+          <select id="numStyle">
+            <option value="gamer">gamer (404/808/247)</option>
+            <option value="random">random digits</option>
+          </select>
+        </label>
+      </div>
+    </fieldset>
+
+    <fieldset class="optblock">
+      <legend>separators (. - _)</legend>
+      <div class="optgrid">
+        <label class="field">how many
+          <select id="sepMax">
+            <option value="0">0</option>
+            <option value="1" selected>1</option>
+            <option value="2">2</option>
+          </select>
+        </label>
+        <label class="check"><input type="checkbox" id="sepDot" checked /> . dot</label>
+        <label class="check"><input type="checkbox" id="sepUnder" checked /> _ underscore</label>
+        <label class="check"><input type="checkbox" id="sepDash" /> - dash</label>
+      </div>
+      <p class="hint">dash + dot work on youtube / discord but NOT twitch (twitch = letters, numbers, _ only). _ is the safest cross-platform pick.</p>
+    </fieldset>
+
+    <div class="toggles">
+      <label><input type="checkbox" id="optLower" checked /> force lowercase</label>
+      <label><input type="checkbox" id="optSafe" checked /> platform-safe cleanup</label>
+    </div>
+
+    <div class="actions">
+      <button id="genBtn" class="primary">generate</button>
+      <span class="hint" id="modeHint"></span>
+    </div>
+  </section>
+
+  <section id="results" class="results"></section>
+
+  <section class="favs">
+    <h3>saved <span id="favCount">0</span></h3>
+    <div id="favList" class="results"></div>
+  </section>
+
+  <footer>
+    <p>combos = real words · made-up = pronounceable syllables (2–3, e.g. cinathyra-style) · streamer = short root + suffix. plain words get taken — add a number / separator / leet swap for uniqueness.</p>
+  </footer>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
